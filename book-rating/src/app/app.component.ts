@@ -12,10 +12,4 @@ import { DashboardComponent } from './books/dashboard/dashboard.component';
 })
 export class AppComponent {
   title = 'Book Rating';
-
-  constructor() {
-    setTimeout(() => {
-      this.title = 'dsfhjkdshgkjd';
-    }, 2000);
-  }
 }
