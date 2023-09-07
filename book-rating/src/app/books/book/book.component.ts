@@ -11,6 +11,7 @@ import { Book } from '../shared/book';
 })
 export class BookComponent {
   // hier dürfen Daten von der Elternkomponente hineinfließen
+  // von oben nach unten
   @Input() book?: Book;
 }
 
