@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule, NgFor } from '@angular/common';
 import { Book } from '../shared/book';
 import { BookComponent } from '../book/book.component';
+import { BookRatingService } from '../shared/book-rating.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -13,7 +14,9 @@ import { BookComponent } from '../book/book.component';
 export class DashboardComponent {
   books: Book[];
 
-  constructor() {
+  // private rs = inject(BookRatingService);
+
+  constructor(private rs: BookRatingService) {
     this.books = [
       {
         isbn: '123',
