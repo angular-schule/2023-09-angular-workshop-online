@@ -11,9 +11,12 @@
       </h2>
     </div>
     <p>{{ book.description }}</p>
-    <p>Preis: {{ book.price }}</p>
+    <p>Preis: {{ book.price | currency:'EUR' }}</p>
 
     <button type="button" class="btn btn-green" (click)="doRateUp()"> + </button>
     <button type="button" class="btn btn-red" (click)="doRateDown()"> – </button>
   </div>
 </div>
+
+
+{{ book | json }}
