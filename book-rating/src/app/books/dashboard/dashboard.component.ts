@@ -46,7 +46,6 @@ export class DashboardComponent {
   }
 
   private updateList(ratedBook: Book) {
-
     // [1,2,3,4,5].map(e => e * 10) // [10, 20, 30, 40, 50]
     // [100, 1,2,3,4,5,6,7,8,9,10].filter(e => e > 5) // [100, 6,7,8,9,10]
 
