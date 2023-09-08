@@ -1,4 +1,22 @@
 <div class="container">
   <h1>{{ title }}</h1>
-  <app-dashboard></app-dashboard>
+
+  <router-outlet></router-outlet>
 </div>
+
+
+<!--
+
+  TODO
+  - Pfad /
+    - Weiterleitung zu /books
+    - (alternativ: Komponente für die Startseite)
+  - Links
+    - Dashboard/BookComponent => Details
+    - Details => Dashboard
+  - Detailseite
+    - ISBN
+    - HTTP getSingle()
+    - Anzeige
+  - Lazy Loading
+-->
