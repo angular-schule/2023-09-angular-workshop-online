@@ -7,11 +7,10 @@
 **Herzlich Willkommen – und schön, dass du dabei bist!**  
 In diesem Repository findest du alle Infos zur Vorbereitung und während des Workshops den Quelltext unserer Beispielanwendung.
 
-<!--
 # 🎮 NEU: RxJS Playground
 
 Du kannst dir entweder  
-* den Code als ZIP-Datei herunterladen: [rxjs-playground.zip](XXX)<br>**oder**<br>
+* den Code als ZIP-Datei herunterladen: [rxjs-playground.zip](https://github.com/angular-schule/2023-09-angular-workshop-online/files/12567973/rxjs-playground.zip)<br>**oder**<br>
 * dieses Repository per Git herunterladen und in den Ordner `rxjs-playground` wechseln.
 
 ```bash
@@ -22,7 +21,6 @@ ng serve
 
 Öffne den Browser unter der URL [http://localhost:**4300**](http://localhost:4300) (!), um die Anwendung zu sehen.
 Die Übungen befinden sich im Ordner `rxjs-playground/src/app/exercises/`.
--->
 
 
 # ✅ Vorbereitung
