@@ -24,6 +24,24 @@ export class CreatingComponent {
 
     /******************************/
 
+    // of('Leipzig', 'Hamburg', 'Stuttgart', 'Nürnberg', 'München')
+    // from([1,2,3,4,5,6,7,8,9])
+    // interval(1000)    // ---0---1---2---3---4---5--- ...
+    // timer(1000, 1000) // ---0---1---2---3---4---5--- ...
+    // timer(2000)       // ------0|
+    // timer(3000, 1000) // ---------0---1---2---3---4---5--- ...
+    // timer(0, 1000)    // 0---1---2---3---4---5--- ...
+
+    timer(0, 1000).pipe(
+      map(e => e * 3),
+      filter(e => e % 2 === 0)
+    ).subscribe({
+      next: e => this.log(e),
+      complete: () => this.log('COMPLETE')
+    })
+
+
+    /******************************/
 
     function producer(sub: Subscriber<number>) {
       const result = Math.random();
@@ -45,14 +63,14 @@ export class CreatingComponent {
     // producer(obs);
 
     const myObs$ = new Observable(producer);
-    myObs$.subscribe(obs);
+    /*myObs$.subscribe(obs);
 
     myObs$.subscribe({
       next: e => console.log(e),
       error: (err: any) => console.error(err)
     });
 
-    myObs$.subscribe(e => console.log(e));
+    myObs$.subscribe(e => console.log(e));*/
 
 
     /******************************/
