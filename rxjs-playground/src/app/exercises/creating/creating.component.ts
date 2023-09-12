@@ -43,6 +43,19 @@ export class CreatingComponent {
 
     /******************************/
 
+
+    /*new Observable<number>(sub => {
+      let counter = 0;
+      setInterval(() => {
+        console.log('NOW');
+        sub.next(counter);
+        counter++;
+      }, 1000)
+    }).subscribe();*/
+
+
+    /******************************/
+
     function producer(sub: Subscriber<number>) {
       const result = Math.random();
       sub.next(result);
