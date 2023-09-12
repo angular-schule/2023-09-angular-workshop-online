@@ -19,7 +19,7 @@
     <a [routerLink]="['/books', book.isbn]">Details</a>
 
     <!--<a [routerLink]="[book.isbn]">Details</a>
-    <a [routerLink]="book.isbn">Details</a>
+    <a [routerLink]="book | makeBookDetailsUrl">Details</a>
     <a [routerLink]="'/books/' + book.isbn">Details</a>
     <a routerLink="/books/{{ book.isbn }}">Details</a>-->
 

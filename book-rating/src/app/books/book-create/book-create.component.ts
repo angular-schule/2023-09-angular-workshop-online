@@ -37,6 +37,36 @@ export class BookCreateComponent {
       validators: [Validators.required, Validators.min(0)]
     }),
   });
+
+
+  isInvalid(controlName: string): boolean {
+    const control = this.bookForm.get(controlName);
+
+    if (!control) {
+      return false;
+    }
+
+    return control.invalid && control.touched;
+  }
+
+  isInvalidAlternativ(controlName: keyof typeof this.bookForm.controls): boolean {
+    const control = this.bookForm.controls[controlName];
+    return control.invalid && control.touched;
+  }
+
+
+  hasError(controlName: string, errorCode: string): boolean {
+    // "Hat dieses Control diesen Fehler?"
+
+    const control = this.bookForm.get(controlName);
+
+    if (!control) {
+      return false;
+    }
+
+    return control.hasError(errorCode) && control.touched;
+  }
+
 }
 
 

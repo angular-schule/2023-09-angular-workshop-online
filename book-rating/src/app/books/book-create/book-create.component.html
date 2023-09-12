@@ -2,6 +2,14 @@
   <div class="form-group">
     <label for="isbnInput">ISBN</label>
     <input type="text" id="isbnInput" class="form-control" formControlName="isbn">
+
+    <div class="feedback-error" *ngIf="isInvalid('isbn')">Die ISBN ist ungültig.</div>
+    <div class="feedback-error" *ngIf="hasError('isbn', 'minlength')">Die ISBN ist zu kurz.</div>
+    <div class="feedback-error" *ngIf="hasError('isbn', 'maxlength')">Die ISBN ist zu lang.</div>
+    <div class="feedback-error" *ngIf="hasError('isbn', 'required')">Die ISBN ist erforderlich.</div>
+    <div class="feedback-error" *ngIf="hasError('isbn', 'pattern')">Die ISBN hat das falsche Format.</div>
+
+    <pre>{{ bookForm.controls.isbn.errors | json }}</pre>
   </div>
 
   <div class="form-group">

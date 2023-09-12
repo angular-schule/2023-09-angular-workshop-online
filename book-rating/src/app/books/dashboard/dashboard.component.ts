@@ -20,6 +20,7 @@ export class DashboardComponent {
   constructor(private rs: BookRatingService, private bs: BookStoreService) {
     this.bs.getAll().subscribe(books => {
       this.books = books;
+      console.table(books);
     });
   }
 
