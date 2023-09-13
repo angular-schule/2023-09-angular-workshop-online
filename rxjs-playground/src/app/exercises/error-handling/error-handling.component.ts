@@ -26,12 +26,21 @@ export class ErrorHandlingComponent {
 
   start() {
     this.es.randomError().pipe(
+      catchError(err => {
+        // irgendwas tun, z.B. Logging, Meldung, …
 
-      /******************************/
 
-      
-      /******************************/
+        // Was passiert mit dem Fehler?
+        // Fehler ignorieren (ersetzen durch "nichts")
+        // return EMPTY;
 
+        // Fehler ersetzen
+        // return of('Nichts', 'passiert');
+
+        // Fehler weiterwerfen
+        // return throwError(() => 'FEHLER!'); // new Observable(sub => sub.error('FEHLER'))
+        throw 'BÖSER FEHLER!';
+      })
     ).subscribe({
       next: e => this.logStream$.next(e),
       error: err => this.logStream$.next('❌ ERROR: ' + err)

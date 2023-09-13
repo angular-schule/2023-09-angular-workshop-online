@@ -21,7 +21,7 @@ export class FromeventComponent {
     /******************************/
 
     fromEvent<{ target: Window }>(window, 'resize').pipe(
-      debounceTime(1000),
+      debounceTime(150),
       map(e => e.target.innerWidth),
       startWith(window.innerWidth),
       // tap(e => console.log(e)),
