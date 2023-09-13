@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { Book } from '../shared/book';
 import { BookStoreService } from '../shared/book-store.service';
+import { map, mergeMap, switchMap } from 'rxjs';
 
 @Component({
   selector: 'app-book-details',
@@ -21,13 +22,11 @@ export class BookDetailsComponent {
     // console.log(isbn);
 
     // PUSH
-    // TODO: Verschachtelte Subscription vermeiden
-    this.route.paramMap.subscribe(params => {
-      const isbn = params.get('isbn')!; // Non-Null Assertion
-
-      this.bs.getSingle(isbn).subscribe(book => {
-        this.book = book;
-      });
+    this.route.paramMap.pipe(
+      map(params => params.get('isbn')!),
+      mergeMap(isbn => this.bs.getSingle(isbn))
+    ).subscribe(book => {
+      this.book = book;
     });
   }
 }
