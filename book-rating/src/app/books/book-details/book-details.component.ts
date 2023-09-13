@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { Book } from '../shared/book';
 import { BookStoreService } from '../shared/book-store.service';
-import { map, mergeMap, switchMap } from 'rxjs';
+import { Observable, map, mergeMap, switchMap, tap } from 'rxjs';
 
 @Component({
   selector: 'app-book-details',
@@ -14,7 +15,7 @@ import { map, mergeMap, switchMap } from 'rxjs';
 })
 export class BookDetailsComponent {
 
-  book?: Book;
+  book$: Observable<Book>;
 
   constructor(private route: ActivatedRoute, private bs: BookStoreService) {
     // PULL / synchron
@@ -22,11 +23,10 @@ export class BookDetailsComponent {
     // console.log(isbn);
 
     // PUSH
-    this.route.paramMap.pipe(
+    this.book$ = this.route.paramMap.pipe(
       map(params => params.get('isbn')!),
-      mergeMap(isbn => this.bs.getSingle(isbn))
-    ).subscribe(book => {
-      this.book = book;
-    });
+      switchMap(isbn => this.bs.getSingle(isbn)),
+    );
   }
 }
+
